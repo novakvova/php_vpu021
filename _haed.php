@@ -10,7 +10,7 @@
     <title>PHP Сайт</title>
 </head>
 <body class="h-100">
-<?php include "navbar.php"; ?>
+<?php include "_navbar.php"; ?>
     <main>
         <div class="container">
 

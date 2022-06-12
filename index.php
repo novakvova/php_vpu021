@@ -1,4 +1,4 @@
-<?php include "haed.php" ?>
+<?php include "_haed.php" ?>
 
     <h1>Hello</h1>
     <a href="login.php">Вхід на сайт</a>
@@ -10,4 +10,4 @@
         echo "<h2>Hello php</h2>";
     ?>
 
-<?php include "footer.php"; ?>
+<?php include "_footer.php"; ?>
