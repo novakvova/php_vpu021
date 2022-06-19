@@ -16,13 +16,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     move_uploaded_file($photo, $filesavepath);
 
-    if($email=="admin@gmail.com" && $password=="123456")
-    {
+    try {
+        include $_SERVER['DOCUMENT_ROOT']."/connection_database.php";
+        $sql = "INSERT INTO `users` (`email`, `phone`, `firstname`, `lastname`, `photo`, `password`) ".
+                    "VALUES (?, ?, ?, ?, ?, ?);";
+        $hash_password=password_hash($password, PASSWORD_DEFAULT);
+        $conn->prepare($sql)->execute([$email, $phone, $name, $lastname, $filename, $hash_password]);
         header("location: /");
         exit();
     }
-    else{
-        $error="Невірні дані";
+    catch(PDOException $e) {
+        echo "<br/><br/><br/>Error Database: ". $e->getMessage();
     }
 
 }
