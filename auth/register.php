@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     $uploads_dir = '/uploads';
     $filename = uniqid().'.jpg';
-    $filesavepath=$_SERVER['DOCUMENT_ROOT']."/$uploads_dir/$filename";
+    $filesavepath=$_SERVER['DOCUMENT_ROOT']."$uploads_dir/$filename";
 
     move_uploaded_file($photo, $filesavepath);
 
